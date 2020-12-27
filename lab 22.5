@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int M, sum = 0;
+    int a[10][10];
+
+    cin >> M;
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < M; j++)
+            cin >> a[i][j];
+    }
+
+    for (int j = 0; j < M - 1; j++) {
+        for (int i = 0; i < j; i++) {
+            sum = sum + a[i, M - (j - i)];
+        }
+        cout << sum;
+    }
+
+    for (int j = M - 1; j > 1; j--)
+    {
+        sum = 0;
+        for (int i = 0; i < j; i++)
+        {
+            sum = sum + a[M - (j - i), i];
+        }
+        cout << sum;
+    }
+    return 0;
+
+}
